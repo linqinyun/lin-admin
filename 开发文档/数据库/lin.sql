@@ -1,5 +1,5 @@
 -- 数据库
-CREATE DATABASE IF NOT EXISTS linadmin DEFAULT CHARACTER SET utf8mb4;
+CREATE DATABASE IF NOT EXISTS `lin_admin_db` DEFAULT CHARACTER SET utf8mb4;
 -- 用户表
 DROP TABLE IF EXISTS `lin_user`;
 CREATE TABLE `lin_user`(
@@ -7,13 +7,14 @@ CREATE TABLE `lin_user`(
     `username` varchar(255) NOT NULL COMMENT '用户名',
     `password` varchar(255) NOT NULL COMMENT '密码',
     `nick_name` varchar(255) NOT NULL DEFAULT '默认昵称' COMMENT '昵称',
-    `gender` varchar(2) NOT NULL COMMENT '性别',
-    `phone` varchar(255) NOT NULL COMMENT '手机号',
-    `email` varchar(255) NOT NULL COMMENT '邮箱',
+    `gender` varchar(2) NOT NULL DEFAULT '未知' COMMENT '性别',
+    `phone` varchar(255) NOT NULL DEFAULT '' COMMENT '手机号',
+    `email` varchar(255) NOT NULL DEFAULT '' COMMENT '邮箱',
     `avator` varchar(255) NOT NULL DEFAULT '' COMMENT '头像地址', 
-    `status` tinyint(1) NOT NULL COMMENT '状态',
-    `is_admin` tinyint(1) NOT NULL COMMENT '是否超级管理员' `create_time` datetime COMMENT '创建时间',
-    `update_time` datetime COMMENT '修改时间',
+    `status` tinyint(1) NOT NULL COMMENT '状态 0,1',
+    `is_admin` tinyint(1) NOT NULL COMMENT '是否超级管理员 0,1',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '修改时间',
     PRIMARY KEY(`user_id`)
 ) Engine = Innodb CHARACTER set utf8mb4 COMMENT = '用户表';
 -- 角色表
@@ -21,10 +22,10 @@ DROP TABLE IF EXISTS `lin_role`;
 CREATE TABLE `lin_role`(
     `role_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
     `name` varchar(255) NOT NULL COMMENT '名称',
-    `desc` varchar(255) NOT NULL COMMENT '描述',
-    `status` tinyint(1) NOT NULL COMMENT '状态',
-    `create_time` datetime COMMENT '创建时间',
-    `update_time` datetime COMMENT '修改时间',
+    `desc` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+    `status` tinyint(1) NOT NULL COMMENT '状态 0,1',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '修改时间',
     PRIMARY KEY(`role_id`)
 ) Engine = Innodb CHARACTER set utf8mb4 COMMENT = '角色表';
 -- 权限表
@@ -35,10 +36,12 @@ CREATE TABLE `lin_permissions`(
     `title` varchar(255) NOT NULL COMMENT '名称',
     `perm` varchar(255) NOT NULL COMMENT '授权(menu:list,menu:edit)',
     `path` varchar(255) DEFAULT '' COMMENT '菜单URL',
+    `icon` varchar(255) DEFAULT '' COMMENT '图标',
+    `list_order` int(11) DEFAULT 0 COMMENT '排序',
     `type` int(11) NOT NULL COMMENT '权限类型(0 目录,1 菜单,2 按钮)',
-    `status` tinyint(1) NOT NULL COMMENT '状态',
-    `create_time` datetime COMMENT '创建时间',
-    `update_time` datetime COMMENT '修改时间',
+    `status` tinyint(1) NOT NULL COMMENT '状态 0,1',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '修改时间',
     PRIMARY KEY(`permissions_id`)
 ) Engine = Innodb CHARACTER set utf8mb4 COMMENT = '权限表';
 -- 用户角色表
