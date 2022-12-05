@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lin.linadmin.dao.LinPermissionsMapper">
+  <resultMap id="BaseResultMap" type="com.lin.linadmin.entity.LinPermissions">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="permissions_id" jdbcType="INTEGER" property="permissionsId" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="perm" jdbcType="VARCHAR" property="perm" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="list_order" jdbcType="INTEGER" property="listOrder" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

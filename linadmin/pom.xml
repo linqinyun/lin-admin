@@ -10,7 +10,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.4</version>
     </parent>
-    <groupId>com.lim</groupId>
+    <groupId>com.lin</groupId>
     <artifactId>linadmin</artifactId>
     <version>1.1-SNAPSHOT</version>
 

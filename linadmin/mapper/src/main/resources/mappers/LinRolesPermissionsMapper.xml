@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lin.linadmin.dao.LinRolesPermissionsMapper">
+  <resultMap id="BaseResultMap" type="com.lin.linadmin.entity.LinRolesPermissions">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="permissions" jdbcType="INTEGER" property="permissions" />
+  </resultMap>
+</mapper>
